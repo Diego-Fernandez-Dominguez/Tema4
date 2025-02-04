@@ -32,7 +32,7 @@ public class Articulo {
 	 */
 	Articulo(String nombre, double precio, int cuantosQuedan) {
 
-		if (nombre != null || nombre != "") {
+		if (nombre != null && !nombre.isEmpty()) {
 			this.nombre = nombre;
 		}
 		if (precio > 0) {
