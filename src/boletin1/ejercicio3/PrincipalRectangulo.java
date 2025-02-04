@@ -3,21 +3,11 @@ package boletin1.ejercicio3;
 public class PrincipalRectangulo {
 	public static void main(String[] args) {
 
-		Rectangulo rec1 = new Rectangulo();
-		Rectangulo rec2 = new Rectangulo();
+		Rectangulo rec1 = new Rectangulo(0, 0, 5, 5);
+		Rectangulo rec2 = new Rectangulo(7, 9, 2, 3);
 
 		int largo;
 		int alto;
-
-		rec1.x1 = 0;
-		rec1.y1 = 0;
-		rec1.x2 = 5;
-		rec1.y2 = 5;
-
-		rec2.x1 = 7;
-		rec2.y1 = 9;
-		rec2.x2 = 2;
-		rec2.y2 = 3;
 
 		largo = Math.abs(rec1.x1 - rec1.x2);
 		alto = Math.abs(rec1.y1 - rec1.y2);
@@ -33,15 +23,15 @@ public class PrincipalRectangulo {
 		System.out.println("Perimetro: " + ((int) (largo + largo + alto + alto)));
 		System.out.println("Area: " + largo * alto);
 
-		rec1.x1 = 0 + 4;
-		rec1.y1 = 0 - 3;
-		rec1.x2 = 5 + 2;
-		rec1.y2 = 5 + 789;
+		rec1.x1 += 7;
+		rec1.y1 /= 2;
+		rec1.x2 += 5;
+		rec1.y2 += 789;
 
-		rec2.x1 = 7 / 5;
-		rec2.y1 = 9 * 5;
-		rec2.x2 = 2 - 5;
-		rec2.y2 = 3 + 5;
+		rec2.x1 += 7;
+		rec2.y1 += 9;
+		rec2.x2 *= 2;
+		rec2.y2 -= 3;
 
 		largo = Math.abs(rec1.x1 - rec1.x2);
 		alto = Math.abs(rec1.y1 - rec1.y2);

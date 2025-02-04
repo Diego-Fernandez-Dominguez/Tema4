@@ -2,44 +2,49 @@ package boletin1.ejercicio2;
 
 import java.util.Scanner;
 
-
 public class PrincipalPersona {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 
-		Persona per1 = new Persona();
-		Persona per2 = new Persona();
+		String dni;
+		String nombre;
+		String apellidos;
+		int edad;
 
 		String mayor;
 
 		// Persona 1
 
 		System.out.println("Dime el nombre");
-		per1.nombre = sc.nextLine();
+		nombre = sc.nextLine();
 
 		System.out.println("Dime los apellidos");
-		per1.apellidos = sc.nextLine();
+		apellidos = sc.nextLine();
 
 		System.out.println("Dime el dni");
-		per1.dni = sc.nextLine();
+		dni = sc.nextLine();
 
 		System.out.println("Dime la edad");
-		per1.edad = sc.nextInt();
+		edad = sc.nextInt();
+
+		Persona per1 = new Persona(dni, nombre, apellidos, edad);
 
 		// Persona 2
 
 		System.out.println("Dime el nombre");
-		per2.nombre = sc.nextLine();
+		nombre = sc.nextLine();
 
 		System.out.println("Dime los apellidos");
-		per2.apellidos = sc.nextLine();
+		apellidos = sc.nextLine();
 
 		System.out.println("Dime el dni");
-		per2.dni = sc.nextLine();
+		dni = sc.nextLine();
 
 		System.out.println("Dime la edad");
-		per2.edad = sc.nextInt();
+		edad = sc.nextInt();
+
+		Persona per2 = new Persona(dni, nombre, apellidos, edad);
 
 		mayor = per1.edad >= 18 ? "es mayor de edad" : "no es mayor de edad";
 
