@@ -6,11 +6,21 @@ public class PrincipalArticulo {
 		Articulo art1 = new Articulo("Zapatos manchados de pintura", 89.99, 3);
 		Articulo art2 = new Articulo("Chicle sabor paella valenciana", 2.43, 78);
 
-		System.out.println(art1.nombre + " - Precio:" + art1.precio + "€ - IVA:" + (int) (art1.IVA * 100) + " - PVP:"
-				+ ((art1.precio * art1.IVA) + art1.precio) + "€ - Stock:" + art1.cuantosQuedan + " unidades");
+		System.out.println(art1.getNombre() + " - Precio:" + art1.getPrecio() + "€ - IVA:" + (int) (Articulo.IVA * 100)
+				+ " - PVP:" + ((art1.getPrecio() * Articulo.IVA) + art1.getPrecio()) + "€ - Stock:"
+				+ art1.getCuantosQuedan() + " unidades");
 
-		System.out.println(art2.nombre + " - Precio:" + art2.precio + "€ - IVA:" + (int) (art2.IVA * 100) + " - PVP:"
-				+ ((art2.precio * art2.IVA) + art2.precio) + "€ - Stock:" + art2.cuantosQuedan + " unidades");
+		System.out.println(art2.getNombre() + " - Precio:" + art2.getPrecio() + "€ - IVA:" + (int) (Articulo.IVA * 100)
+				+ " - PVP:" + ((art2.getPrecio() * Articulo.IVA) + art2.getPrecio()) + "€ - Stock:"
+				+ art2.getCuantosQuedan() + " unidades");
+
+		art1.setNombre("lo mismo pero le subimos el precio jajajasss");
+		art1.setPrecio(art1.getPrecio() + 10.00);
+		art1.setCuantosQuedan(art1.getCuantosQuedan() - 1);
+
+		System.out.println(art1.getNombre() + " - Precio:" + art1.getPrecio() + "€ - IVA:" + (int) (Articulo.IVA * 100)
+				+ " - PVP:" + ((art1.getPrecio() * Articulo.IVA) + art1.getPrecio()) + "€ - Stock:"
+				+ art1.getCuantosQuedan() + " unidades");
 
 	}
 

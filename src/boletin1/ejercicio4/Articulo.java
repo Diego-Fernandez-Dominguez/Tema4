@@ -5,22 +5,22 @@ public class Articulo {
 	/**
 	 * Nombre del articulo
 	 */
-	String nombre = "Producto";
+	private String nombre = "Producto";
 
 	/**
 	 * Precio del articulo
 	 */
-	double precio = 0.0;
+	private double precio = 0.0;
 
 	/**
 	 * IVA que se va a aplicar a todos los articulos
 	 */
-	final double IVA = 0.21;
+	static public final double IVA = 0.21;
 
 	/**
 	 * Cantidas de productos que quedan
 	 */
-	int cuantosQuedan = 0;
+	private int cuantosQuedan = 0;
 
 	/**
 	 * Constructor que establece los valores a los articulos
@@ -30,7 +30,7 @@ public class Articulo {
 	 * @param cuantosQuedan del articulo
 	 * @param IVA
 	 */
-	Articulo(String nombre, double precio, int cuantosQuedan) {
+	public Articulo(String nombre, double precio, int cuantosQuedan) {
 
 		if (nombre != null && !nombre.isEmpty()) {
 			this.nombre = nombre;
@@ -43,6 +43,66 @@ public class Articulo {
 			this.cuantosQuedan = cuantosQuedan;
 		}
 
+	}
+
+	/**
+	 * Devuelve el nombre del producto
+	 * 
+	 * @return El nombre del producto
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * Modifica el nombre del producto
+	 * 
+	 * @param nombre del producto
+	 */
+	public void setNombre(String nombre) {
+		if (nombre != null && !nombre.isEmpty()) {
+			this.nombre = nombre;
+		}
+	}
+
+	/**
+	 * Devuelve el precio del producto
+	 * 
+	 * @return El precio del producto
+	 */
+	public double getPrecio() {
+		return precio;
+	}
+
+	/**
+	 * Modifica el precio del producto
+	 * 
+	 * @param precio del producto
+	 */
+	public void setPrecio(double precio) {
+		if (precio > 0) {
+			this.precio = precio;
+		}
+	}
+
+	/**
+	 * Devuelve el stock del producto
+	 * 
+	 * @return El stock del producto
+	 */
+	public int getCuantosQuedan() {
+		return cuantosQuedan;
+	}
+
+	/**
+	 * Modifica el stock del producto
+	 * 
+	 * @param cuantosQuedan Cantidad de productos que esan en el stock
+	 */
+	public void setCuantosQuedan(int cuantosQuedan) {
+		if (cuantosQuedan >= 0) {
+			this.cuantosQuedan = cuantosQuedan;
+		}
 	}
 
 }

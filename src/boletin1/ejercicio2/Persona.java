@@ -5,22 +5,22 @@ public class Persona {
 	/**
 	 * Dni de la persona
 	 */
-	String dni;
+	private String dni = "12345678A";
 
 	/**
 	 * Nombre de la persona
 	 */
-	String nombre;
+	private String nombre = "NombrePredeterminado";
 
 	/**
 	 * Apellidos de la persona
 	 */
-	String apellidos;
+	private String apellidos = "Apellido1 Apellido2";
 
 	/**
 	 * Edad de la persona
 	 */
-	int edad;
+	private int edad = 0;
 
 	/**
 	 * Constructor que establece los datos de la persona
@@ -30,13 +30,93 @@ public class Persona {
 	 * @param apellidos de la persona
 	 * @param edad      de la persona
 	 */
-	Persona(String dni, String nombre, String apellidos, int edad) {
+	public Persona(String dni, String nombre, String apellidos, int edad) {
 
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.edad = edad;
+		if (dni != null && dni.isBlank() && dni.length() == 9) {
+			this.dni = dni;
+		}
 
+		if (nombre != null && nombre.isBlank()) {
+			this.nombre = nombre;
+		}
+
+		if (apellidos != null && apellidos.isBlank()) {
+			this.apellidos = apellidos;
+		}
+
+		if (edad >= 0) {
+			this.edad = edad;
+		}
+
+	}
+
+	/**
+	 * Devuelve el dni de la persona
+	 * 
+	 * @return dni de la persona
+	 */
+	public String getDni() {
+		return dni;
+	}
+
+	/**
+	 * Devuelve el nombre de la persona
+	 * 
+	 * @return Nombre de la persona
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * Modifica el nombre de la persona
+	 * 
+	 * @param nombre de la persona
+	 */
+	public void setNombre(String nombre) {
+		if (nombre != null && nombre.isBlank()) {
+			this.nombre = nombre;
+		}
+	}
+
+	/**
+	 * Devuelve los apellidos de la persona
+	 * 
+	 * @return Apellidos de la persona
+	 */
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	/**
+	 * Modifica los apellidos de la persona
+	 * 
+	 * @param apellidos de la persona
+	 */
+	public void setApellidos(String apellidos) {
+		if (apellidos != null && apellidos.isBlank()) {
+			this.apellidos = apellidos;
+		}
+	}
+
+	/**
+	 * Devuelve la edad de la persona
+	 * 
+	 * @return Edad de la persona
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/**
+	 * Modifica la edad de la persona
+	 * 
+	 * @param edad de la persona
+	 */
+	public void setEdad(int edad) {
+		if (edad >= 0) {
+			this.edad = edad;
+		}
 	}
 
 }

@@ -7,23 +7,23 @@ public class PrincipalPunto {
 		Punto pun2 = new Punto(10, 10);
 		Punto pun3 = new Punto(-3, 7);
 
-		System.out.println("Punto 1: " + pun1.x + ", " + pun1.y);
-		System.out.println("Punto 2: " + pun2.x + ", " + pun2.y);
-		System.out.println("Punto 3: " + pun3.x + ", " + pun3.y);
+		System.out.println("Punto 1: " + pun1.getX() + ", " + pun1.getY());
+		System.out.println("Punto 2: " + pun2.getX() + ", " + pun2.getY());
+		System.out.println("Punto 3: " + pun3.getX() + ", " + pun3.getY());
 
 		System.out.println();
 
-		pun1.x = pun1.x + 4;
-		pun2.x = pun2.x + 2;
-		pun3.x = pun3.x + 9;
+		pun1.setX(pun1.getX() + 4);
+		pun2.setX(pun2.getX() + 4);
+		pun3.setX(pun3.getX() + 4);
 
-		pun1.y = pun1.y + 1;
-		pun2.y = pun2.y - 4;
-		pun3.y = pun3.y * 6;
+		pun1.setY(pun1.getY() + 1);
+		pun2.setY(pun2.getY() + 1);
+		pun3.setY(pun3.getY() + 1);
 
-		System.out.println("Punto 1: " + pun1.x + ", " + pun1.y);
-		System.out.println("Punto 2: " + pun2.x + ", " + pun2.y);
-		System.out.println("Punto 3: " + pun3.x + ", " + pun3.y);
+		System.out.println("Punto 1: " + pun1.getX() + ", " + pun1.getY());
+		System.out.println("Punto 2: " + pun2.getX() + ", " + pun2.getY());
+		System.out.println("Punto 3: " + pun3.getX() + ", " + pun3.getY());
 
 	}
 
