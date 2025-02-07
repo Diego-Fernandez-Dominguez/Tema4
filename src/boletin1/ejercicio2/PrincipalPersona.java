@@ -12,8 +12,6 @@ public class PrincipalPersona {
 		String apellidos;
 		int edad;
 
-		String mayor;
-
 		// Persona 1
 
 		System.out.println("Dime el nombre");
@@ -46,17 +44,18 @@ public class PrincipalPersona {
 
 		Persona per2 = new Persona(dni, nombre, apellidos, edad);
 
-		mayor = per1.getEdad() >= 18 ? "es mayor de edad" : "no es mayor de edad";
+		per1.esMayorEdad();
+		per1.esJubilado();
 
-		System.out.println(per1.getNombre() + " " + per1.getApellidos() + " con DNI " + per1.getDni() + " " + mayor);
+		System.out.println(per1);
 
-		mayor = per2.getEdad() >= 18 ? "es mayor de edad" : "no es mayor de edad";
+		per2.esMayorEdad();
+		per2.esJubilado();
 
-		System.out.println(per2.getNombre() + " " + per2.getApellidos() + " con DNI " + per2.getDni() + " " + mayor);
+		System.out.println(per2);
 
-		per1.setEdad(edad+1);
-		System.out.println(per1.getNombre() + " " + per1.getApellidos() + " con DNI " + per1.getDni() + " " + mayor);
-		
+		System.out.println(per1.diferenciaEdad(per2));
+
 		sc.close();
 
 	}

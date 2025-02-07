@@ -9,21 +9,18 @@ public class PrincipalRectangulo {
 		int largo;
 		int alto;
 
-		largo = Math.abs(rec1.getX1() - rec1.getX2());
-		alto = Math.abs(rec1.getY1() - rec1.getY2());
+		rec1.getPerimetro();
+		rec1.getArea();
 
 		System.out.println(
 				"Rectangulo 1:\n" + rec1.getX1() + " " + rec1.getY1() + " " + rec1.getX2() + " " + rec1.getY2());
-		System.out.println("Perimetro: " + ((int) (largo + largo + alto + alto)));
-		System.out.println("Area: " + largo * alto);
+		
 
-		largo = Math.abs(rec2.getX1() - rec2.getX2());
-		alto = Math.abs(rec2.getY1() - rec2.getY2());
+		rec2.getPerimetro();
+		rec2.getArea();
 
 		System.out.println(
 				"\nRectangulo 2:\n" + rec2.getX1() + " " + rec2.getY1() + " " + rec2.getX2() + " " + rec2.getY2());
-		System.out.println("Perimetro: " + ((int) (largo + largo + alto + alto)));
-		System.out.println("Area: " + largo * alto);
 
 		rec1.setX1(rec1.getX1() + 7);
 		rec1.setY1(rec1.getY1() / 2);

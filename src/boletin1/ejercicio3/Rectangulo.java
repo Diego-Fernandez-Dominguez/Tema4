@@ -123,4 +123,79 @@ public class Rectangulo {
 		}
 	}
 
+	// DOBLES Y CUADRUPLESSSSS
+
+	public void setX1Y1(int x1, int y1) {
+
+		if (x1 < x2 && y1 < y2) {
+			this.x1 = x1;
+			this.y1 = y1;
+		}
+
+	}
+
+	public void setX2Y2(int x2, int y2) {
+
+		if (x1 < x2 && y1 < y2) {
+			this.x2 = x2;
+			this.y2 = y2;
+		}
+
+	}
+
+	public void setAll(int x1, int y1, int x2, int y2) {
+
+		if (x1 < x2 && y1 < y2) {
+
+			this.x1 = x1;
+			this.y1 = y1;
+
+			this.x2 = x2;
+			this.y2 = y2;
+		}
+
+	}
+
+	public int getPerimetro() {
+
+		int largo;
+		int alto;
+
+		int perimetro;
+
+		largo = Math.abs(this.x1 - this.x2);
+		alto = Math.abs(this.y1 - this.y2);
+
+		perimetro = ((int) (largo + largo + alto + alto));
+
+		return perimetro;
+	}
+	
+	public int getArea() {
+
+		int largo;
+		int alto;
+
+		int area;
+
+		largo = Math.abs(this.x1 - this.x2);
+		alto = Math.abs(this.y1 - this.y2);
+
+		area = ((int) (largo * alto));
+
+		return area;
+	}
+	
+	public String toString() {
+		
+		String cadena = "";
+
+		cadena += "(Coordenada 1: " + this.x1 + ", " + this.y1 + ")";
+
+		cadena += "(Coordenada 2: " + this.x2 + ", " + this.y2 + ")";
+
+		return cadena;
+		
+	}
+
 }

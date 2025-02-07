@@ -7,23 +7,24 @@ public class PrincipalPunto {
 		Punto pun2 = new Punto(10, 10);
 		Punto pun3 = new Punto(-3, 7);
 
-		System.out.println("Punto 1: " + pun1.getX() + ", " + pun1.getY());
-		System.out.println("Punto 2: " + pun2.getX() + ", " + pun2.getY());
-		System.out.println("Punto 3: " + pun3.getX() + ", " + pun3.getY());
+		System.out.println("Punto 1: " + pun1);
+		System.out.println("Punto 2: " + pun2);
+		System.out.println("Punto 3: " + pun3);
 
 		System.out.println();
+		
+		pun1.setXY(4, 8);
 
-		pun1.setX(pun1.getX() + 4);
-		pun2.setX(pun2.getX() + 4);
-		pun3.setX(pun3.getX() + 4);
+		pun1.desplaza(4, 1);
+		pun2.desplaza(3, 3);
+		pun3.desplaza(6, 78);
 
-		pun1.setY(pun1.getY() + 1);
-		pun2.setY(pun2.getY() + 1);
-		pun3.setY(pun3.getY() + 1);
+		System.out.println("Punto 1: " + pun1);
+		System.out.println("Punto 2: " + pun2);
+		System.out.println("Punto 3: " + pun3);
 
-		System.out.println("Punto 1: " + pun1.getX() + ", " + pun1.getY());
-		System.out.println("Punto 2: " + pun2.getX() + ", " + pun2.getY());
-		System.out.println("Punto 3: " + pun3.getX() + ", " + pun3.getY());
+		System.out.println();
+		System.out.println(pun1.distancia(pun2));
 
 	}
 

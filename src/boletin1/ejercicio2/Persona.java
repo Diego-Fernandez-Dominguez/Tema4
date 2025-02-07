@@ -119,4 +119,51 @@ public class Persona {
 		}
 	}
 
+	public boolean esMayorEdad() {
+
+		boolean mayor;
+
+		if (this.edad >= 18) {
+			mayor = true;
+		} else {
+			mayor = false;
+		}
+
+		return mayor;
+
+	}
+
+	public boolean esJubilado() {
+
+		boolean jubilado;
+
+		if (this.edad >= 65) {
+			jubilado = true;
+		} else {
+			jubilado = false;
+		}
+
+		return jubilado;
+
+	}
+
+	public int diferenciaEdad(Persona p) {
+
+		int diferencia;
+
+		diferencia = Math.abs(this.edad - p.edad);
+
+		return diferencia;
+
+	}
+	
+	public String toString() {
+		
+		String cadena="";
+		
+		cadena+= "DNI: " + this.dni + "Nombre: " + this.nombre + "Apellidos: " + this.apellidos + "Edad: " + this.edad ;
+		
+		return cadena;
+	}
+
 }

@@ -61,4 +61,35 @@ public class Punto {
 		this.y = y;
 	}
 
+	public void setXY(int x, int y) {
+
+		this.x = x;
+		this.y = y;
+
+	}
+
+	public void desplaza(int dx, int dy) {
+
+		this.x = this.x + dx;
+		this.y = this.y + dy;
+
+	}
+
+	public double distancia(Punto p) {
+
+		double distancia;
+
+		distancia = Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2));
+
+		return distancia;
+
+	}
+
+	public String toString() {
+		String cadena;
+		cadena = "";
+		cadena += "(" + x + "," + y + ")";
+		return cadena;
+	}
+
 }
