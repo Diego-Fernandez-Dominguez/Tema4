@@ -156,6 +156,18 @@ public class Rectangulo {
 
 	}
 
+	public int getLargo() {
+
+		return Math.abs(this.x1 - this.x2);
+
+	}
+
+	public int getAlto() {
+
+		return Math.abs(this.y1 - this.y2);
+
+	}
+
 	public int getPerimetro() {
 
 		int largo;
@@ -163,14 +175,14 @@ public class Rectangulo {
 
 		int perimetro;
 
-		largo = Math.abs(this.x1 - this.x2);
-		alto = Math.abs(this.y1 - this.y2);
+		largo = getLargo();
+		alto = getAlto();
 
 		perimetro = ((int) (largo + largo + alto + alto));
 
 		return perimetro;
 	}
-	
+
 	public int getArea() {
 
 		int largo;
@@ -185,9 +197,9 @@ public class Rectangulo {
 
 		return area;
 	}
-	
+
 	public String toString() {
-		
+
 		String cadena = "";
 
 		cadena += "(Coordenada 1: " + this.x1 + ", " + this.y1 + ")";
@@ -195,7 +207,7 @@ public class Rectangulo {
 		cadena += "(Coordenada 2: " + this.x2 + ", " + this.y2 + ")";
 
 		return cadena;
-		
+
 	}
 
 }

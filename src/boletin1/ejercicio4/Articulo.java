@@ -15,7 +15,7 @@ public class Articulo {
 	/**
 	 * IVA que se va a aplicar a todos los articulos
 	 */
-	static public final double IVA = 0.21;
+	static public final double IVA = 21;
 
 	/**
 	 * Cantidas de productos que quedan
@@ -103,6 +103,55 @@ public class Articulo {
 		if (cuantosQuedan >= 0) {
 			this.cuantosQuedan = cuantosQuedan;
 		}
+	}
+
+	public double getPVP() {
+
+		return (this.precio * (Articulo.IVA) / 100) + this.precio;
+
+	}
+
+	public double getPVPDescuento(int descuento) {
+
+		return (this.precio * (descuento) / 100) + this.precio;
+
+	}
+
+	public boolean vendar(int ventas) {
+
+		boolean posible = false;
+
+		if (ventas <= this.cuantosQuedan && ventas > 0) {
+
+			this.cuantosQuedan = -ventas;
+
+			posible = true;
+
+		}
+
+		return posible;
+
+	}
+
+	public void almacenar(int cantidad) {
+
+		if (cantidad > 0) {
+
+			this.cuantosQuedan += cantidad;
+
+		}
+
+	}
+
+	public String toString() {
+
+		String cadena = "";
+
+		cadena += this.nombre + " - Precio:" + this.precio + "€ - IVA:" + Articulo.IVA + " - PVP:" + this.getPVP()
+				+ "€ - Stock:" + this.cuantosQuedan + " unidades";
+
+		return cadena;
+
 	}
 
 }

@@ -6,48 +6,35 @@ public class PrincipalRectangulo {
 		Rectangulo rec1 = new Rectangulo(0, 0, 5, 5);
 		Rectangulo rec2 = new Rectangulo(7, 9, 2, 3);
 
-		int largo;
-		int alto;
+		System.out.println(rec1);
 
-		rec1.getPerimetro();
-		rec1.getArea();
+		System.out.println("Perimero rectangulo 1: " + rec1.getPerimetro());
+		System.out.println("Area rectangulo 1: " + rec1.getArea());
 
-		System.out.println(
-				"Rectangulo 1:\n" + rec1.getX1() + " " + rec1.getY1() + " " + rec1.getX2() + " " + rec1.getY2());
+		System.out.println();
+
+		System.out.println(rec2);
+		System.out.println("Perimero rectangulo 2: " + rec2.getPerimetro());
+		System.out.println("Area rectangulo 2: " + rec2.getArea());
+
+		rec1.setX1Y1(5, 7);
+		rec1.setX2Y2(9, 10);
+
+		rec2.setAll(8, 3, 0, 100);
+
+		System.out.println();
+
+		System.out.println(rec1);
+
+		System.out.println("Perimero rectangulo 1: " + rec1.getPerimetro());
+		System.out.println("Area rectangulo 1: " + rec1.getArea());
+
+		System.out.println();
+
+		System.out.println(rec2);
+		System.out.println("Perimero rectangulo 2: " + rec2.getPerimetro());
+		System.out.println("Area rectangulo 2: " + rec2.getArea());
 		
-
-		rec2.getPerimetro();
-		rec2.getArea();
-
-		System.out.println(
-				"\nRectangulo 2:\n" + rec2.getX1() + " " + rec2.getY1() + " " + rec2.getX2() + " " + rec2.getY2());
-
-		rec1.setX1(rec1.getX1() + 7);
-		rec1.setY1(rec1.getY1() / 2);
-		rec1.setX2(rec1.getX2() + 5);
-		rec1.setY2(rec1.getY2() + 789);
-
-		rec2.setX1(rec1.getX1() + 7);
-		rec2.setY1(rec1.getY1() + 9);
-		rec2.setX2(rec1.getX2() * 2);
-		rec2.setY2(rec1.getY2() - 3);
-
-		largo = Math.abs(rec1.getX1() - rec1.getX2());
-		alto = Math.abs(rec1.getY1() - rec1.getY2());
-
-		System.out.println(
-				"Rectangulo 1:\n" + rec1.getX1() + " " + rec1.getY1() + " " + rec1.getX2() + " " + rec1.getY2());
-		System.out.println("Perimetro: " + ((int) (largo + largo + alto + alto)));
-		System.out.println("Area: " + largo * alto);
-
-		largo = Math.abs(rec2.getX1() - rec2.getX2());
-		alto = Math.abs(rec2.getY1() - rec2.getY2());
-
-		System.out.println(
-				"\nRectangulo 2:\n" + rec2.getX1() + " " + rec2.getY1() + " " + rec2.getX2() + " " + rec2.getY2());
-		System.out.println("Perimetro: " + ((int) (largo + largo + alto + alto)));
-		System.out.println("Area: " + largo * alto);
-
 	}
 
 }
