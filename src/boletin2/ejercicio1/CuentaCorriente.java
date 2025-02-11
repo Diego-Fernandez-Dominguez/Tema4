@@ -2,13 +2,13 @@ package boletin2.ejercicio1;
 
 public class CuentaCorriente {
 
-	private String dni;
+	private String dni = "no especificado";
 
-	private String nombre;
+	private String nombre = "no especificado";
 
-	private int saldo;
+	private double saldo = 0.1;
 
-	Nacionalidad nacion;
+	Nacionalidad nacion = Nacionalidad.ESPAÑOLA;
 
 	enum Nacionalidad {
 
@@ -16,13 +16,77 @@ public class CuentaCorriente {
 
 	}
 
+	/**
+	 * 
+	 * @param dni
+	 * @param saldo
+	 */
+	public CuentaCorriente(String dni, double saldo) {
+
+		if (dni != null && !dni.isBlank()) {
+			this.dni = dni;
+		}
+
+		if (saldo > 0) {
+			this.saldo = saldo;
+		}
+
+	}
+
+	/**
+	 * 
+	 * @param dni
+	 * @param nombre
+	 * @param saldo
+	 */
+	public CuentaCorriente(String dni, String nombre, double saldo) {
+
+		if (dni != null && !dni.isBlank()) {
+			this.dni = dni;
+		}
+
+		if (nombre != null && !nombre.isBlank()) {
+			this.nombre = nombre;
+		}
+
+		if (saldo > 0) {
+			this.saldo = saldo;
+		}
+
+	}
+
+	/**
+	 * 
+	 * @param dni
+	 * @param nombre
+	 * @param saldo
+	 * @param nacion
+	 */
 	public CuentaCorriente(String dni, String nombre, int saldo, String nacion) {
 
-		this.dni = dni;
-		this.nombre = nombre;
-		this.saldo = saldo;
-		this.nacion = Nacionalidad.valueOf(nacion);
+		if (dni != null && !dni.isBlank()) {
+			this.dni = dni;
+		}
 
+		if (nombre != null && !nombre.isBlank()) {
+			this.nombre = nombre;
+		}
+
+		if (saldo > 0) {
+			this.saldo = saldo;
+		}
+
+		switch (nacion) {
+
+		case "EXTRANJERA" -> {
+			this.nacion = Nacionalidad.EXTRANJERA;
+		}
+
+		default -> {
+			this.nacion = Nacionalidad.ESPAÑOLA;
+		}
+
+		}
 	}
 
 	public String getDni() {
@@ -35,15 +99,21 @@ public class CuentaCorriente {
 
 	public void setNombre(String nombre) {
 
-		if (nombre != null && !nombre.isBlank())
+		if (nombre != null && !nombre.isBlank()) {
 			this.nombre = nombre;
+		}
 	}
 
-	public int getSaldo() {
+	public double getSaldo() {
 		return saldo;
 	}
 
 	public void setSaldo(int saldo) {
+
+		if (saldo > 0) {
+			this.saldo = saldo;
+		}
+
 		this.saldo = saldo;
 	}
 
@@ -51,8 +121,20 @@ public class CuentaCorriente {
 		return nacion;
 	}
 
-	public void setNacion(Nacionalidad nacion) {
-		this.nacion = nacion;
+	public void setNacion(String nacion) {
+
+		switch (nacion) {
+
+		case "EXTRANJERA" -> {
+			this.nacion = Nacionalidad.EXTRANJERA;
+		}
+
+		default -> {
+			this.nacion = Nacionalidad.ESPAÑOLA;
+		}
+
+		}
+
 	}
 
 	public boolean sacarDinero(int dinero) {
@@ -82,6 +164,31 @@ public class CuentaCorriente {
 		}
 
 		return sePudo;
+
+	}
+
+	@Override
+	public String toString() {
+
+		String cadena = "";
+
+		cadena += "DNI: " + dni + " - Nombre: " + nombre + " - Saldo: " + saldo + " - Nacionalidad: " + nacion;
+
+		return cadena;
+
+	}
+
+	public boolean equals(Object obj) {
+
+		CuentaCorriente cuenta2 = (CuentaCorriente) obj;
+
+		boolean iguales = false;
+
+		if (this.nombre.equals(cuenta2.nombre) && this.dni.equals(cuenta2.dni)) {
+			iguales = true;
+		}
+
+		return iguales;
 
 	}
 
