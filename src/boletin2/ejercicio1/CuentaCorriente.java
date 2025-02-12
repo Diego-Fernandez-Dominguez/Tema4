@@ -126,14 +126,9 @@ public class CuentaCorriente {
 
 		switch (nacion) {
 
-		case "EXTRANJERA" -> {
-			this.nacion = Nacionalidad.EXTRANJERA;
+		case "EXTRANJERA", "ESPAÑOLA" -> {
+			this.nacion = Nacionalidad.valueOf(nacion);
 		}
-
-		default -> {
-			this.nacion = Nacionalidad.ESPAÑOLA;
-		}
-
 		}
 	}
 

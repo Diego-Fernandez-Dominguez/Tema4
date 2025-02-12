@@ -99,12 +99,8 @@ public class Pizza {
 
 		switch (tamaño) {
 
-		case "FAMILIAR" -> {
-			this.tamaño = TamañoPizza.FAMILIAR;
-		}
-
-		default -> {
-			this.tamaño = TamañoPizza.MEDIANA;
+		case "FAMILIAR", "MEDIANA" -> {
+			this.tamaño = TamañoPizza.valueOf(tamaño);
 		}
 
 		}
@@ -119,20 +115,12 @@ public class Pizza {
 
 		switch (tipo) {
 
-		case "CUATROQUESOS" -> {
-			this.tipo = TipoPizza.CUATROQUESOS;
-		}
-
-		case "FUNGHI" -> {
-			this.tipo = TipoPizza.FUNGHI;
-		}
-
-		default -> {
-			this.tipo = TipoPizza.MARGARITA;
-		}
+		case "CUATROQUESOS", "FUNGHI", "MARGARITA" -> {
+			this.tipo = TipoPizza.valueOf(tipo);
 
 		}
 
+		}
 	}
 
 	/**
@@ -143,14 +131,9 @@ public class Pizza {
 
 		switch (estado) {
 
-		case "SERVIDA" -> {
-			this.estado = EstadoPizza.SERVIDA;
+		case "SERVIDA", "PEDIDA" -> {
+			this.estado = EstadoPizza.valueOf(estado);
 		}
-
-		default -> {
-			this.estado = EstadoPizza.PEDIDA;
-		}
-
 		}
 
 	}

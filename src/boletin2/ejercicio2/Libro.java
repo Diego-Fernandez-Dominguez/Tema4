@@ -163,25 +163,10 @@ public class Libro {
 
 		switch (genero) {
 
-		case "LIRICO" -> {
-			this.genero = GeneroLibro.LIRICO;
+		case "NARRATIVO", "LIRICO", "DRAMATICO", "DIDACTICO", "POETICO" -> {
+			this.genero = GeneroLibro.valueOf(genero);
 		}
 
-		case "DRAMATICO" -> {
-			this.genero = GeneroLibro.DRAMATICO;
-		}
-
-		case "DIDACTICO" -> {
-			this.genero = GeneroLibro.DIDACTICO;
-		}
-
-		case "POETICO" -> {
-			this.genero = GeneroLibro.POETICO;
-		}
-
-		default -> {
-			this.genero = GeneroLibro.NARRATIVO;
-		}
 		}
 
 	}
