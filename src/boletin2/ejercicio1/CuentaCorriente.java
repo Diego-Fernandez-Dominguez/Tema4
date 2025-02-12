@@ -64,6 +64,8 @@ public class CuentaCorriente {
 	 */
 	public CuentaCorriente(String dni, String nombre, int saldo, String nacion) {
 
+		nacion = nacion.toUpperCase();
+
 		if (dni != null && !dni.isBlank()) {
 			this.dni = dni;
 		}
@@ -76,17 +78,8 @@ public class CuentaCorriente {
 			this.saldo = saldo;
 		}
 
-		switch (nacion) {
+		comprobarNacion(nacion);
 
-		case "EXTRANJERA" -> {
-			this.nacion = Nacionalidad.EXTRANJERA;
-		}
-
-		default -> {
-			this.nacion = Nacionalidad.ESPAÑOLA;
-		}
-
-		}
 	}
 
 	public String getDni() {
@@ -123,6 +116,14 @@ public class CuentaCorriente {
 
 	public void setNacion(String nacion) {
 
+		nacion = nacion.toUpperCase();
+
+		comprobarNacion(nacion);
+
+	}
+
+	public void comprobarNacion(String nacion) {
+
 		switch (nacion) {
 
 		case "EXTRANJERA" -> {
@@ -134,7 +135,6 @@ public class CuentaCorriente {
 		}
 
 		}
-
 	}
 
 	public boolean sacarDinero(int dinero) {

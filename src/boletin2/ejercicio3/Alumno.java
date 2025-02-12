@@ -44,22 +44,24 @@ public class Alumno {
 
 		String cadena = "";
 
-		cadena += "Nombre: " + nombre + " - Media: " + media;
+		cadena += nombre + " " + media;
 
 		return cadena;
 	}
 
-	//@Override
-	/*public boolean equals(Object obj) {
+	@Override
+	public boolean equals(Object obj) {
 
 		Alumno alum2 = (Alumno) obj;
-		
-		boolean iguales;
-		
-		if(this.nombre.equalsIgnoreCase(alum2.nombre)) {
-			
+
+		boolean iguales = false;
+
+		if (this.nombre.equalsIgnoreCase(alum2.nombre)) {
+			iguales = true;
 		}
 
-	}*/
+		return iguales;
+
+	}
 
 }

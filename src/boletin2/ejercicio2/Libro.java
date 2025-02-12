@@ -74,6 +74,8 @@ public class Libro {
 	 */
 	public Libro(String titulo, String autor, int ejemplares, int ejemplaresPres, String genero) {
 
+		genero = genero.toUpperCase();
+
 		if (titulo != null && !titulo.isBlank()) {
 			this.titulo = titulo;
 		}
@@ -94,29 +96,7 @@ public class Libro {
 
 		}
 
-		switch (genero) {
-
-		case "LIRICO" -> {
-			this.genero = GeneroLibro.LIRICO;
-		}
-
-		case "DRAMATICO" -> {
-			this.genero = GeneroLibro.DRAMATICO;
-		}
-
-		case "DIDACTICO" -> {
-			this.genero = GeneroLibro.DIDACTICO;
-		}
-
-		case "POETICO" -> {
-			this.genero = GeneroLibro.POETICO;
-		}
-
-		default -> {
-			this.genero = GeneroLibro.NARRATIVO;
-		}
-
-		}
+		comprobarGenero(genero);
 
 	}
 
@@ -173,6 +153,14 @@ public class Libro {
 
 	public void setGenero(String genero) {
 
+		genero = genero.toUpperCase();
+
+		comprobarGenero(genero);
+
+	}
+
+	public void comprobarGenero(String genero) {
+
 		switch (genero) {
 
 		case "LIRICO" -> {
@@ -195,6 +183,7 @@ public class Libro {
 			this.genero = GeneroLibro.NARRATIVO;
 		}
 		}
+
 	}
 
 	public boolean prestamo(int numeroPres) {
