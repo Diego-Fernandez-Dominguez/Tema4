@@ -1,7 +1,7 @@
 package boletin3.ejercicio3;
 
 public class SumaEnteros {
-
+	
 	static int sumaEnteros(int numero) {
 
 		int suma;
