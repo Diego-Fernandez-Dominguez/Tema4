@@ -15,4 +15,28 @@ public class AlumnoCRUD {
 		}
 	}
 
+	public boolean añadeAlumno(Alumno a) {
+
+		return alumnos.add(a);
+
+	}
+
+	public Alumno buscaAlumno(String nombre) {
+
+		Alumno a = null;
+
+		for (Alumno aBusqueda : alumnos) {
+			if (aBusqueda.getNombre() == nombre) {
+				a = aBusqueda;
+			}
+		}
+
+		return a;
+
+	}
+	
+	public boolean borrarAlumno(Alumno alum) {
+		return alumnos.remove(alum);
+	}
+
 }
