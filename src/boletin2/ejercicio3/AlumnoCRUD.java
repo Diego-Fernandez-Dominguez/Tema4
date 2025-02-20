@@ -26,7 +26,7 @@ public class AlumnoCRUD {
 		Alumno a = null;
 
 		for (Alumno aBusqueda : alumnos) {
-			if (aBusqueda.getNombre() == nombre) {
+			if (aBusqueda.getNombre().equals(nombre)) {
 				a = aBusqueda;
 			}
 		}
@@ -34,7 +34,7 @@ public class AlumnoCRUD {
 		return a;
 
 	}
-	
+
 	public boolean borrarAlumno(Alumno alum) {
 		return alumnos.remove(alum);
 	}

@@ -18,11 +18,15 @@ public class PrincipalAlumno {
 
 		AlumnoCRUD alumnos = new AlumnoCRUD();
 
-		/*
-		 * Alumno alum1 = new Alumno("Euseboi Tercero de la Familia", 2.1); Alumno alum2
-		 * = new Alumno("Daniel Diaz Uña", 9.5); Alumno alum3 = new
-		 * Alumno("Adrian Moreno Montero", 6.7);
-		 */
+		Alumno alum1 = new Alumno("Euseboi Tercero de la Familia", 2.1);
+		Alumno alum2 = new Alumno("Daniel Diaz Uña", 9.5);
+		Alumno alum3 = new Alumno("Adrian Moreno Montero", 5.7);
+		Alumno alum4 = new Alumno("Simple", 7.3);
+
+		alumnos.añadeAlumno(alum1);
+		alumnos.añadeAlumno(alum2);
+		alumnos.añadeAlumno(alum3);
+		alumnos.añadeAlumno(alum4);
 
 		// Menu hecho con do-while y un switch
 
@@ -51,9 +55,9 @@ public class PrincipalAlumno {
 					System.out.println("Digame la nueva media");
 					System.out.println("Digame la media");
 					media = sc.nextDouble();
-					
+
 					alumno.setMedia(media);
-				}else {
+				} else {
 					System.out.println("El alumno no existe");
 				}
 
@@ -64,15 +68,19 @@ public class PrincipalAlumno {
 				alumno = alumnos.buscaAlumno(nombre);
 				if (alumno != null) {
 					alumnos.borrarAlumno(alumno);
-				}else {
+				} else {
 					System.out.println("El alumno no existe");
 				}
 			}
+			case 5 -> System.out.println("Saliendo del sistema...");
+
+			default -> System.out.println("Opción no válida");
+
 			}
 
 		} while (opc != 5);
 
-		alumnos.listarAlumnos();
+		sc.close();
 
 	}
 
