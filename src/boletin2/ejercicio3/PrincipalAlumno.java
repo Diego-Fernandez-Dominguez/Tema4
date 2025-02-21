@@ -16,17 +16,17 @@ public class PrincipalAlumno {
 
 		Alumno alumno;
 
-		AlumnoCRUD alumnos = new AlumnoCRUD();
+		//AlumnoCRUD alumnos = new AlumnoCRUD();
 
 		Alumno alum1 = new Alumno("Euseboi Tercero de la Familia", 2.1);
 		Alumno alum2 = new Alumno("Daniel Diaz Uña", 9.5);
 		Alumno alum3 = new Alumno("Adrian Moreno Montero", 5.7);
 		Alumno alum4 = new Alumno("Simple", 7.3);
 
-		alumnos.añadeAlumno(alum1);
-		alumnos.añadeAlumno(alum2);
-		alumnos.añadeAlumno(alum3);
-		alumnos.añadeAlumno(alum4);
+		AlumnoCRUD.añadeAlumno(alum1);
+		AlumnoCRUD.añadeAlumno(alum2);
+		AlumnoCRUD.añadeAlumno(alum3);
+		AlumnoCRUD.añadeAlumno(alum4);
 
 		// Menu hecho con do-while y un switch
 
@@ -39,35 +39,34 @@ public class PrincipalAlumno {
 			switch (opc) {
 
 			case 1 -> {
-				alumnos.listarAlumnos();
+				AlumnoCRUD.listarAlumnos();
 			}
 			case 2 -> {
 
 				alumno = creaAlumno();
-				alumnos.añadeAlumno(alumno);
+				AlumnoCRUD.añadeAlumno(alumno);
 
 			}
 			case 3 -> {
 
 				nombre = pedirNombre();
-				alumno = alumnos.buscaAlumno(nombre);
-				if (alumno != null) {
-					System.out.println("Digame la nueva media");
-					System.out.println("Digame la media");
-					media = sc.nextDouble();
+				System.out.println("Digame la nueva media");
+				media = sc.nextDouble();
 
-					alumno.setMedia(media);
+				if (AlumnoCRUD.modificarMedia(nombre, media)) {
+					System.out.println("Se pudo cambiar la media");
 				} else {
-					System.out.println("El alumno no existe");
+					System.out.println("No se pudo modificar la media");
 				}
 
 			}
+
 			case 4 -> {
 
 				nombre = pedirNombre();
-				alumno = alumnos.buscaAlumno(nombre);
+				alumno = AlumnoCRUD.buscaAlumno(nombre);
 				if (alumno != null) {
-					alumnos.borrarAlumno(alumno);
+					AlumnoCRUD.borrarAlumno(alumno);
 				} else {
 					System.out.println("El alumno no existe");
 				}

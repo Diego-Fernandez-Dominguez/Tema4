@@ -6,22 +6,22 @@ import java.util.Set;
 public class AlumnoCRUD {
 
 	// Atributo que va a ser la coleccion donde almacenar nuestros objetos
-	private Set<Alumno> alumnos = new HashSet<Alumno>();
+	private static Set<Alumno> alumnos = new HashSet<Alumno>();
 
-	public void listarAlumnos() {
+	public static void listarAlumnos() {
 		for (Alumno a : alumnos) {
 			System.out.println(a);
 			System.out.println("-------------------------------");
 		}
 	}
 
-	public boolean añadeAlumno(Alumno a) {
+	public static boolean añadeAlumno(Alumno a) {
 
 		return alumnos.add(a);
 
 	}
 
-	public Alumno buscaAlumno(String nombre) {
+	public static Alumno buscaAlumno(String nombre) {
 
 		Alumno a = null;
 
@@ -35,8 +35,22 @@ public class AlumnoCRUD {
 
 	}
 
-	public boolean borrarAlumno(Alumno alum) {
+	public static boolean borrarAlumno(Alumno alum) {
 		return alumnos.remove(alum);
+	}
+
+	public static boolean modificarMedia(String nombre, double media) {
+
+		boolean sePudo = false;
+
+		Alumno a = buscaAlumno(nombre);
+		if (a != null) {
+			a.setMedia(media);
+			sePudo = true;
+		}
+
+		return sePudo;
+
 	}
 
 }

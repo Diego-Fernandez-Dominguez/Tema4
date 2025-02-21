@@ -6,22 +6,22 @@ import java.util.Set;
 public class Gestimal {
 
 	// Atributo que va a ser la coleccion donde almacenar nuestros objetos
-	private Set<Articulo> articulos = new HashSet<Articulo>();
+	private static Set<Articulo> articulos = new HashSet<Articulo>();
 
-	public void listarArticulos() {
+	public static void listarArticulos() {
 		for (Articulo a : articulos) {
 			System.out.println(a);
 			System.out.println("-----------------------------");
 		}
 	}
 
-	public boolean añadeArticulo(Articulo a) {
+	public static boolean añadeArticulo(Articulo a) {
 
 		return articulos.add(a);
 
 	}
 
-	public Articulo buscaArticulo(String nombre) {
+	public static Articulo buscaArticulo(String nombre) {
 
 		Articulo a = null;
 
@@ -35,9 +35,47 @@ public class Gestimal {
 		return a;
 
 	}
-	
-	public boolean borrarArticulo(Articulo art) {
+
+	public static boolean borrarArticulo(Articulo art) {
 		return articulos.remove(art);
+	}
+
+	public static boolean modificarDatos(String nombre, double precio) {
+
+		boolean sePudo = false;
+
+		Articulo a = buscaArticulo(nombre);
+		if (a != null) {
+			a.setPrecio(precio);
+			sePudo = true;
+		}
+
+		return sePudo;
+
+	}
+
+	public static boolean entradaMercancia(String nombre, int cantidad) {
+		boolean sePudo = false;
+
+		Articulo a = buscaArticulo(nombre);
+		if (a != null) {
+			a.almacenar(cantidad);
+			sePudo = true;
+		}
+
+		return sePudo;
+	}
+
+	public static boolean salidaMercancia(String nombre, int cantidad) {
+		boolean sePudo = false;
+
+		Articulo a = buscaArticulo(nombre);
+		if (a != null) {
+			a.vendar(cantidad);
+			sePudo = true;
+		}
+
+		return sePudo;
 	}
 
 }

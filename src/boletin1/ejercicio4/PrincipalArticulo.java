@@ -18,36 +18,37 @@ public class PrincipalArticulo {
 
 		Articulo articulo;
 
-		Gestimal articulos = new Gestimal();
+		// Gestimal articulos = new Gestimal();
 
 		Articulo art1 = new Articulo("Zapatos manchados de pintura", 89.99, 3);
 		Articulo art2 = new Articulo("Chicle sabor paella valenciana", 2.43, 78);
+		Articulo art3 = new Articulo("Simple", 34.5, 4);
 
-		articulos.añadeArticulo(art1);
-		articulos.añadeArticulo(art2);
+		Gestimal.añadeArticulo(art1);
+		Gestimal.añadeArticulo(art2);
+		Gestimal.añadeArticulo(art3);
 
 		do {
 
 			menu();
 			System.out.println("Elige una opcion");
 			opc = sc.nextLine();
-			sc.nextLine();
 
 			switch (opc) {
 
-			case "a" -> articulos.listarArticulos();
+			case "a" -> Gestimal.listarArticulos();
 			case "b" -> {
 
 				articulo = creaArticulo();
-				articulos.añadeArticulo(articulo);
+				Gestimal.añadeArticulo(articulo);
 
 			}
 			case "c" -> {
 
 				nombre = pedirNombre();
-				articulo = articulos.buscaArticulo(nombre);
+				articulo = Gestimal.buscaArticulo(nombre);
 				if (articulo != null) {
-					articulos.borrarArticulo(articulo);
+					Gestimal.borrarArticulo(articulo);
 				} else {
 					System.out.println("Articulo no encontrado");
 				}
@@ -56,26 +57,56 @@ public class PrincipalArticulo {
 			case "d" -> {
 
 				nombre = pedirNombre();
-				articulo = articulos.buscaArticulo(nombre);
-				if (articulo != null) {
+				System.out.println("Digame el precio");
+				precio = sc.nextDouble();
+				sc.nextLine();
 
-					System.out.println("Digame el precio");
-					precio = sc.nextDouble();
-					sc.nextLine();
+				if (Gestimal.modificarDatos(nombre, precio)) {
 
-					System.out.println("Digame el cuantos quedan");
-					cuantosQuedan = sc.nextInt();
-					sc.nextLine();
-
-					articulo.setPrecio(precio);
-					articulo.setCuantosQuedan(cuantosQuedan);
+					System.out.println("Se pudo modificar el articulo");
 
 				} else {
-					System.out.println("Articulo no encontrado");
+					System.out.println("No se pudo modificar el articulo");
+				}
+
+			}
+			case "e" -> {
+
+				nombre = pedirNombre();
+				System.out.println("Digame la cantidad a aumentar");
+				cuantosQuedan = sc.nextInt();
+				sc.nextLine();
+
+				if (Gestimal.entradaMercancia(nombre, cuantosQuedan)) {
+
+					System.out.println("Se pudo modificar el articulo");
+
+				} else {
+					System.out.println("No se pudo modificar el articulo");
 				}
 
 			}
 
+			case "f" -> {
+
+				nombre = pedirNombre();
+				System.out.println("Digame la cantidad a aumentar");
+				cuantosQuedan = sc.nextInt();
+				sc.nextLine();
+
+				if (Gestimal.salidaMercancia(nombre, cuantosQuedan)) {
+
+					System.out.println("Se pudo modificar el articulo");
+
+				} else {
+					System.out.println("No se pudo modificar el articulo");
+				}
+			}
+
+			case "g" -> {
+				System.out.println("Saliendo del programa...");
+			}
+			default -> System.out.println("Opcion no valida");
 			}
 
 		} while (!opc.equals("g"));

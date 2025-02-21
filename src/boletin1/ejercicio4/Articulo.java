@@ -123,7 +123,7 @@ public class Articulo {
 
 		if (ventas <= this.cuantosQuedan && ventas > 0) {
 
-			this.cuantosQuedan = -ventas;
+			this.cuantosQuedan -= ventas;
 
 			posible = true;
 
