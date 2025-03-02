@@ -87,4 +87,14 @@ public class Disco {
 		}
 
 	}
+	
+	@Override
+	public String toString() {
+
+		String cadena = "";
+
+		cadena += codigo + " " + autor + " " + duracion + " " + genero;
+
+		return cadena;
+	}
 }
