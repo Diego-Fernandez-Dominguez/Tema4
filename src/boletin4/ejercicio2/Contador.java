@@ -1,8 +1,15 @@
 package boletin4.ejercicio2;
 
+/**
+ * En la clase contador guardaremos un numero el cual representara a un contador
+ * 
+ * @author Diego Fernandez Dominguez
+ */
 public class Contador {
 
-	// Atributo que va a guardar el contador del contador
+	/**
+	 *  Atributo que va a guardar el contador del contador
+	 */
 	private int cont = 0;
 
 	/**

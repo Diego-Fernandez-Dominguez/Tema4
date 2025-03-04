@@ -1,14 +1,26 @@
 package boletin4.ejercicio1;
 
+/**
+ * En la clase hora guardaremos los tres datos mas importantes de una fecha: Las
+ * horas, los minutos y los segundos
+ * 
+ * @author Diego Fernandez Dominguez
+ */
 public class Hora {
 
-	// Variable que va a guardar la hora
+	/**
+	 * Variable que va a guardar la hora
+	 */
 	private int hora = 0;
 
-	// Variable que va a guardar los minutos
+	/**
+	 * Variable que va a guardar los minutos
+	 */
 	private int minuto = 0;
 
-	// Variable que va a guardar los segundos
+	/**
+	 * Variable que va a guardar los segundos
+	 */
 	private int segundo = 0;
 
 	/**
