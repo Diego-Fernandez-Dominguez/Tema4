@@ -1,4 +1,4 @@
-package boletin4.ejercicio4;
+package boletinCRUD.ejercicio4;
 
 import java.util.HashSet;
 import java.util.Set;

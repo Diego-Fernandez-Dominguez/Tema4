@@ -1,4 +1,4 @@
-package boletin4.ejercicio4;
+package boletinCRUD.ejercicio4;
 
 public class Disco {
 
@@ -87,7 +87,7 @@ public class Disco {
 		}
 
 	}
-	
+
 	@Override
 	public String toString() {
 
@@ -96,5 +96,13 @@ public class Disco {
 		cadena += codigo + " " + autor + " " + duracion + " " + genero;
 
 		return cadena;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		Disco disco = (Disco) obj;
+
+		return disco.codigo == this.codigo;
 	}
 }
