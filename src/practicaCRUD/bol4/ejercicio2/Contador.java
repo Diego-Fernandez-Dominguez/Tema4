@@ -1,4 +1,4 @@
-package boletin4.ejercicio2;
+package practicaCRUD.bol4.ejercicio2;
 
 import java.util.Objects;
 

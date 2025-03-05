@@ -1,5 +1,7 @@
 package boletin4.ejercicio3;
 
+import java.util.Objects;
+
 /**
  * En la clase fecha guardaremos los tres datos mas importantes de una fecha:
  * Dia, mes y anyo
@@ -9,17 +11,17 @@ package boletin4.ejercicio3;
 public class Fecha {
 
 	/**
-	 *  Dia del objeto fecha
+	 * Dia del objeto fecha
 	 */
 	private int dia = 1;
 
 	/**
-	 *  Mes del objeto fecha
+	 * Mes del objeto fecha
 	 */
 	private int mes = 1;
 
 	/**
-	 *  Anyo del objeto fecha
+	 * Anyo del objeto fecha
 	 */
 	private int anyo = 1991;
 
@@ -32,45 +34,13 @@ public class Fecha {
 	 */
 	public Fecha(int dia, int mes, int anyo) {
 
-		if (anyo > 0) {
+		if (fechaCorrecta(dia, mes, anyo)) {
+			this.dia = dia;
+			this.mes = mes;
 			this.anyo = anyo;
 		}
+		;
 
-		if (mes > 0 && mes <= 12)
-
-			this.mes = mes;
-
-		if (dia > 0 && dia <= 31) {
-
-			switch (mes) {
-
-			case 1, 3, 5, 7, 8, 10, 12 -> {
-
-				this.dia = dia;
-
-			}
-			case 4, 6, 9, 11 -> {
-
-				if (dia <= 30) {
-					this.dia = dia;
-				}
-
-			}
-
-			default -> {
-				if (esBisiesto(anyo)) {
-
-					if (dia <= 29) {
-						this.dia = dia;
-					}
-
-				} else if (dia <= 28) {
-					this.dia = dia;
-
-				}
-			}
-			}
-		}
 	}
 
 	/**
@@ -140,7 +110,7 @@ public class Fecha {
 
 		boolean esBisi = false;
 
-		if (anyo % 4 == 0) {
+		if (anyo % 4 == 0 && anyo % 100 != 0 || anyo % 400 == 0) {
 			esBisi = true;
 		}
 
@@ -158,31 +128,20 @@ public class Fecha {
 	 */
 	public boolean fechaCorrecta(int dia, int mes, int anyo) {
 
-		// Contador que si llega al numero 3 significa que la fecha es correcta
-		int cont = 0;
-
 		// Variable que va a guardar si la fecha es correcta o no
 		boolean esCor = false;
 
 		// Compruebo si el anyo es correcto
 		if (anyo > 0) {
-			cont++;
-		}
-
-		// Compruebo si el anyo esta en el rango correcto
-		if (mes > 0 && mes <= 12)
-
-			cont++;
-
-		// Compruebo si los dias estan en el rango correcto
-		if (dia > 0 && dia <= 31) {
 
 			switch (mes) {
 
 			// Si se encuentra en uno de estos meses el dia esta bien
 			case 1, 3, 5, 7, 8, 10, 12 -> {
 
-				cont++;
+				if (dia <= 31) {
+					esCor = true;
+				}
 
 			}
 
@@ -190,32 +149,27 @@ public class Fecha {
 			case 4, 6, 9, 11 -> {
 
 				if (dia <= 30) {
-					cont++;
+					esCor = true;
 				}
 
 			}
 
 			// Si llega aqui, el mes es febrero, que tiene menos dias
-			default -> {
+			case 2 -> {
 
 				// Compruebo si el anyo es bisiesto, y tras esto compruebo el dia
 				if (esBisiesto(anyo)) {
 
 					if (dia <= 29) {
-						cont++;
+						esCor = true;
 					}
 
 				} else if (dia <= 28) {
-					cont++;
+					esCor = true;
 
 				}
 			}
 			}
-		}
-
-		// Si el contador es igual a 3, significa que la fecha es correcta
-		if (cont == 3) {
-			esCor = true;
 		}
 
 		return esCor;
@@ -304,12 +258,21 @@ public class Fecha {
 	}
 
 	/**
+	 * Metodo hash que del objeto fecha
+	 */
+	public int hashCode() {
+		return Objects.hash(dia, mes, anyo);
+	}
+
+	/**
 	 * Metodo que va a comparar dos fechas para ver si son iguales
 	 * 
 	 * @param fecha2 Fecha que se va a comparar
 	 * @return Devuelve true si las fechas son iguales y false si no lo son
 	 */
-	public boolean equals(Fecha fecha2) {
+	public boolean equals(Object obj) {
+
+		Fecha fecha2 = (Fecha) obj;
 
 		boolean sonIgu = false;
 
