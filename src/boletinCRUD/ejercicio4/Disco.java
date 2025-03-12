@@ -1,5 +1,7 @@
 package boletinCRUD.ejercicio4;
 
+import java.util.Objects;
+
 public class Disco {
 
 	private int codigo = 0;
@@ -12,6 +14,14 @@ public class Disco {
 
 	enum GeneroDisco {
 		ROCK, POP, JAZZ, BLUES
+	}
+
+	public Disco(int codigo) {
+
+		if (codigo >= 0) {
+			this.codigo = codigo;
+		}
+
 	}
 
 	public Disco(int codigo, String autor, int duracion, String genero) {
@@ -99,10 +109,21 @@ public class Disco {
 	}
 
 	@Override
+	public int hashCode() {
+		return Objects.hash(codigo);
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 
-		Disco disco = (Disco) obj;
+		Disco disc;
 
-		return disco.codigo == this.codigo;
+		boolean igu = false;
+
+		disc = (Disco) obj;
+
+		if (codigo == disc.codigo)
+			igu = true;
+		return igu;
 	}
 }

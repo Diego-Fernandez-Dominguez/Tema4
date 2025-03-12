@@ -83,7 +83,10 @@ public class Empleado {
 
 	public static void setImporteHorasExtras(double importe) {
 
-		importeHorasExtras = importe;
+		if (importe > 0) {
+			importeHorasExtras = importe;
+		}
+		
 
 	}
 

@@ -7,7 +7,7 @@ public class DiscoPrincipal {
 	static Scanner reader = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
+		
 		int opc = 0;
 
 		Disco disco;
@@ -44,10 +44,10 @@ public class DiscoPrincipal {
 			case 4 -> {
 
 				codigo = pedirCodigo();
-				disco = DiscoCRUD.buscaDisco(codigo);
+				disco = new Disco(codigo);
 
-				if (disco != null) {
-					DiscoCRUD.borraDisco(disco);
+				if (DiscoCRUD.borraDisco(disco)) {
+					System.out.println("Se ha borrado el disco");
 				} else {
 					System.out.println("El disco no existe");
 				}
