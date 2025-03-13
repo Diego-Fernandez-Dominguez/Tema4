@@ -98,7 +98,7 @@ public class MainEmpleado {
 
 	}
 
-	static void menu() {
+	public static void menu() {
 		System.out.println("1. Anyadir empleado");
 		System.out.println("2. Listar empleados");
 		System.out.println("3. Modificar horas extras");
@@ -107,7 +107,7 @@ public class MainEmpleado {
 		System.out.println("0. Salir");
 	}
 
-	static String pedirDni() {
+	private static String pedirDni() {
 
 		String dni;
 
@@ -118,7 +118,7 @@ public class MainEmpleado {
 
 	}
 
-	static int pedirHoras() {
+	private static int pedirHoras() {
 
 		int horas;
 
@@ -130,7 +130,7 @@ public class MainEmpleado {
 
 	}
 
-	static Empleado creaEmpleado() {
+	public static Empleado creaEmpleado() {
 
 		Empleado em;
 
