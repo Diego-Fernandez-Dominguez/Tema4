@@ -63,7 +63,7 @@ public class ListadoEmpleado {
 
 		if (eModificar != null) {
 			sePudo = true;
-			em.setHorasExtras(horas);
+			eModificar.setHorasExtras(horas);
 		}
 
 		return sePudo;
