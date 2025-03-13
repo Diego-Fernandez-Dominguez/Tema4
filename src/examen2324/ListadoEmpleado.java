@@ -33,7 +33,7 @@ public class ListadoEmpleado {
 
 			if (empleado.equals(e)) {
 
-				emp = e;
+				emp = empleado;
 
 			}
 

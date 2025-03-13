@@ -1,5 +1,7 @@
 package examen2324;
 
+import java.util.Objects;
+
 public class Empleado {
 
 	private String dni;
@@ -103,6 +105,11 @@ public class Empleado {
 		return this.dni + " " + this.nombre + "\nHoras Extras: " + this.horasExtras + "\nSueldo Bruto: "
 				+ this.sueldoBruto();
 
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
 	}
 
 	@Override
