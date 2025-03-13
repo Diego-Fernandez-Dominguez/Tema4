@@ -12,6 +12,14 @@ public class Empleado {
 
 	private static double importeHorasExtras = 25;
 
+	public Empleado(String dni) {
+
+		if (dni != null && !dni.isBlank()) {
+			this.dni = dni;
+		}
+
+	}
+
 	public Empleado(String dni, String nombre, double sueldoBase, int horasExtras) {
 
 		if (dni != null && !dni.isBlank()) {
@@ -86,7 +94,6 @@ public class Empleado {
 		if (importe > 0) {
 			importeHorasExtras = importe;
 		}
-		
 
 	}
 
