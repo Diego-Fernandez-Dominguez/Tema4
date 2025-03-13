@@ -41,7 +41,11 @@ public class MainEmpleado {
 
 				empl = creaEmpleado();
 
-				System.out.println(ListadoEmpleado.anyadirEmpleado(empl));
+				if (ListadoEmpleado.anyadirEmpleado(empl)) {
+					System.out.println("Si");
+				} else {
+					System.out.println("No");
+				}
 
 			}
 
@@ -52,11 +56,10 @@ public class MainEmpleado {
 			case 3 -> {
 				dni = pedirDni();
 				horasExtras = pedirHoras();
+				empl = new Empleado(dni);
 
-				empl = ListadoEmpleado.comprobarEmpleado(dni);
-
-				if (empl != null) {
-					empl.setHorasExtras(horasExtras);
+				if (ListadoEmpleado.modificarHorasExtras(empl, horasExtras)) {
+					System.out.println("Si");
 				} else {
 					System.out.println("El empleado no existe");
 				}
@@ -80,10 +83,11 @@ public class MainEmpleado {
 
 				dni = pedirDni();
 
-				empl = ListadoEmpleado.comprobarEmpleado(dni);
+				empl = new Empleado(dni);
 
-				if (empl != null) {
-					ListadoEmpleado.eliminarEmpleado(empl);
+				if (ListadoEmpleado.eliminarEmpleado(empl)) {
+					System.out.println("Funciona");
+					;
 				} else {
 					System.out.println("No se encontro el empleado");
 				}

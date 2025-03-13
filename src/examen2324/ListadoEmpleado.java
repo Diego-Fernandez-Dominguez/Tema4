@@ -14,43 +14,31 @@ public class ListadoEmpleado {
 		}
 	}
 
-	public static String anyadirEmpleado(Empleado e) {
+	public static boolean anyadirEmpleado(Empleado e) {
 
-		String cadena;
+		return empleados.add(e);
 
-		if (empleados.add(e)) {
-			cadena = "\nSe ha podido anyadir\n";
-		} else {
-			cadena = "\nNo se ha podido anyadir\n";
-		}
-
-		return cadena;
 	}
 
-	public static String eliminarEmpleado(Empleado e) {
+	public static boolean eliminarEmpleado(Empleado e) {
 
-		String cadena;
-
-		if (empleados.remove(e)) {
-			cadena = "\nSe ha podido eliminar\n";
-		} else {
-			cadena = "\nNo se ha podido eliminar\n";
-		}
-
-		return cadena;
+		return empleados.remove(e);
 	}
 
-	public static Empleado comprobarEmpleado(String dni) {
+	private static Empleado comprobarEmpleado(Empleado e) {
 
-		Empleado e = null;
+		Empleado emp = null;
 
-		for (Empleado eBusqueda : empleados) {
-			if (dni.equals(eBusqueda.getDni())) {
-				e = eBusqueda;
+		for (Empleado empleado : empleados) {
+
+			if (empleado.equals(e)) {
+
+				emp = empleado;
+
 			}
-		}
 
-		return e;
+		}
+		return emp;
 
 	}
 
@@ -60,6 +48,22 @@ public class ListadoEmpleado {
 
 		if (importe > 0) {
 			Empleado.setImporteHorasExtras(importe);
+			sePudo = true;
+		}
+
+		return sePudo;
+
+	}
+
+	public static boolean modificarHorasExtras(Empleado em, int horas) {
+
+		boolean sePudo = false;
+
+		Empleado eModificar = comprobarEmpleado(em);
+
+		if (eModificar != null) {
+			sePudo = true;
+			em.setHorasExtras(horas);
 		}
 
 		return sePudo;

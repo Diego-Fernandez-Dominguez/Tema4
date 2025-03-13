@@ -1,5 +1,7 @@
 package examen2324;
 
+import java.util.Objects;
+
 public class Empleado {
 
 	private String dni;
@@ -11,6 +13,14 @@ public class Empleado {
 	private int horasExtras;
 
 	private static double importeHorasExtras = 25;
+
+	public Empleado(String dni) {
+
+		if (dni != null && !dni.isBlank()) {
+			this.dni = dni;
+		}
+
+	}
 
 	public Empleado(String dni, String nombre, double sueldoBase, int horasExtras) {
 
@@ -83,7 +93,9 @@ public class Empleado {
 
 	public static void setImporteHorasExtras(double importe) {
 
-		importeHorasExtras = importe;
+		if (importe > 0) {
+			importeHorasExtras = importe;
+		}
 
 	}
 
@@ -93,6 +105,11 @@ public class Empleado {
 		return this.dni + " " + this.nombre + "\nHoras Extras: " + this.horasExtras + "\nSueldo Bruto: "
 				+ this.sueldoBruto();
 
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
 	}
 
 	@Override
